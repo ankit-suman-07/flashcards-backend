@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const userRoutes = require('./routes/user.routes');
 
 const {sequelize} = require('../models');
 
@@ -12,9 +13,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
+app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('FlasCard API running...');
 });
 
 sequelize.authenticate()
