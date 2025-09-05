@@ -1,18 +1,33 @@
-# Node.js dependencies
+# Node
 node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
+.env.*.local
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+logs/
+*.log
 
-# Environment variables
-.env
-
-# Build output
+# Build
 dist/
 build/
+coverage/
+.nyc_output/
 
-# OS-specific files
+# Database
+*.sqlite
+*.sql
+pgdata/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
 .DS_Store
 Thumbs.db
