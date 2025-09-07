@@ -24,6 +24,10 @@ module.exports = {
         type: Sequelize.STRING(255), // ✅ match model
         allowNull: false
       },
+      fullname: {
+        type: Sequelize.STRING(255),
+        allowNull: false,
+      },
       preferences: {
         type: Sequelize.JSONB,
         allowNull: true,

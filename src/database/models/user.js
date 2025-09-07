@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    fullname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     preferences: {
       type: DataTypes.JSONB,
       defaultValue: { darkMode: false, notifications: true }
