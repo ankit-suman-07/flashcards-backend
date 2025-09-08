@@ -1,19 +1,30 @@
-'use strict';
+const { Model, DataTypes } = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+class User extends Model {
+  static associate(models) {
+    // A user can have multiple decks
+    User.hasMany(models.Deck, { foreignKey: 'userId', as: 'decks', onDelete: 'CASCADE' });
+    // A user can have multiple card progress records
+    User.hasMany(models.CardProgress, { foreignKey: 'userId', as: 'cardProgressRecords', onDelete: 'CASCADE' });
+    // A user can have multiple collections
+    User.hasMany(models.Collection, { foreignKey: 'userId', as: 'collections', onDelete: 'CASCADE' });
+  }
+}
+
+User.init(
+  {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    username: {
-      type: DataTypes.STRING,
+    userName: {
+      type: DataTypes.STRING(50),
       allowNull: false,
       unique: true
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
       unique: true,
       validate: {
@@ -24,9 +35,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    fullname: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    fullName: {
+      type: DataTypes.STRING(100),
+      allowNull: false
     },
     preferences: {
       type: DataTypes.JSONB,
@@ -44,10 +55,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('user', 'admin'),
       defaultValue: 'user'
     }
-  }, {
-    tableName: 'Users',
-    timestamps: true
-  });
+  },
+  {
+    sequelize, // Pass the sequelize instance from your setup
+    timestamps: true,
+    underscored: true
+  }
+);
 
-  return User;
-};
+module.exports = User;

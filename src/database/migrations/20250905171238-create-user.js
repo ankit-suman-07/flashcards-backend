@@ -6,11 +6,11 @@ module.exports = {
     await queryInterface.createTable('Users', {
       id: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4, // ✅ consistent with model
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
         allowNull: false
       },
-      username: {
+      userName: {
         type: Sequelize.STRING(50),
         allowNull: false,
         unique: true
@@ -21,17 +21,17 @@ module.exports = {
         unique: true
       },
       passwordHash: {
-        type: Sequelize.STRING(255), // ✅ match model
+        type: Sequelize.STRING,
         allowNull: false
       },
-      fullname: {
-        type: Sequelize.STRING(255),
+      fullName: {
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
       preferences: {
         type: Sequelize.JSONB,
         allowNull: true,
-        defaultValue: { darkMode: false, notifications: true } // ✅ match model
+        defaultValue: { darkMode: false, notifications: true }
       },
       streakCount: {
         type: Sequelize.INTEGER,
