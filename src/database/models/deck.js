@@ -30,7 +30,7 @@ Deck.init(
       defaultValue: 'private'
     },
     tags: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.STRING(50)),
         defaultValue: []
     }
   },{
