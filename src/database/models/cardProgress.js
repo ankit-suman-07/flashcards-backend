@@ -1,5 +1,6 @@
-import {Model, DataTypes} from 'sequelize';
+const { Model, DataTypes } = require('sequelize');
 
+module.exports = (sequelize) => {
 class CardProgress extends Model {
     static associate(models) {
         // Each progress record belongs to 1 user 
@@ -20,12 +21,12 @@ CardProgress.init({
             type: DataTypes.ENUM('confident', 'doubtful', 'read_again'),
             defaultValue: 'confident'
         },
-        lastRevviewedAt: {
-            type: DataTypes.TIMESTAMP,
+        lastReviewedAt: {
+            type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
         },
         nextReviewAt: {
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.DATE,
             allowNull: false
         },
         reviewCount: {
@@ -41,5 +42,7 @@ CardProgress.init({
     timestamps: true,
     underscored: true
 });
+return CardProgress;
+}
 
-module.exports = CardProgress;
+// module.exports = CardProgress;

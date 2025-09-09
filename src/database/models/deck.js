@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
+module.exports = (sequelize) => {
 class Deck extends Model {
   static associate(models) {
     // Each deck belongs to 1 user(owner)
@@ -39,5 +40,7 @@ Deck.init(
     underscored: true
   }
 );
+  return Deck;
+}
 
-module.exports = Deck;
+//module.exports = Deck;

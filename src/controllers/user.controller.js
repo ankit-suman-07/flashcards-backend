@@ -1,31 +1,24 @@
-const {User} = require('../database/models');
+const userService = require('../services/user.service');
 
-//Create a new user
-exports.createUser = async (req, res) => {
-    try {
-        const {username, email, passwordHash} = req.body;
-
-        // Store password as plain text for now
-        const newUser = await User.create({
-            username, 
-            email, 
-            passwordHash
-        });
-
-        res.status(201).json(newUser);
-    } catch (error) {
-        console.log("Error creating user:", error);
-        res.status(500).json({error: 'Failed to create user'});
-    }
+async function createUser(req, res) {
+  try {
+    const user = await userService.createUser(req.body);
+    res.status(201).json(user);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 }
 
-//Get all users
-exports.getUsers = async (req, res) => {
-    try {
-        const users = await User.findAll();
-        res.status(200).json(users);
-    } catch (error) {
-        console.log("Error fetching users:", error);
-        res.status(500).json({error: 'Failed to fetch users'});
-    }
+async function getAllUsers(req, res) {
+  try {
+    const users = await userService.getAllUsers();
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 }
+
+module.exports = {
+  createUser,
+  getAllUsers
+};

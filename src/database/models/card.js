@@ -1,5 +1,6 @@
 const {Model, DataTypes} = require('sequelize');
 
+module.exports = (sequelize) => {
 class Card extends Model {
   static associate(models) {
     // Each card belongs to 1 deck
@@ -44,5 +45,7 @@ Card.init(
     underscored: true
   }
 );
+  return Card;
+}
 
-module.exports = Card;
+// module.exports = Card;

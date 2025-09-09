@@ -1,5 +1,6 @@
-import {Model, DataTypes} from 'sequelize';
+const { Model, DataTypes } = require('sequelize');
 
+module.exports = (sequelize) => {
 class Collection extends Model {
     static associate(models) {
         // A collection can have multiple decks
@@ -35,5 +36,7 @@ Collection.init(
         underscored: true
     }
 );
+return Collection;
+}
 
-module.exports = Collection;
+//module.exports = Collection;

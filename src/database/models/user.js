@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
+module.exports = (sequelize) => {
 class User extends Model {
   static associate(models) {
     // A user can have multiple decks
@@ -62,5 +63,7 @@ User.init(
     underscored: true
   }
 );
+  return User;
+};
 
-module.exports = User;
+// module.exports = User;

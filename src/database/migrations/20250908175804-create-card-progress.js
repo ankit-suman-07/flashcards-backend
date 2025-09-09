@@ -37,12 +37,12 @@ module.exports = {
                   type: Sequelize.ENUM('confident', 'doubtful', 'read_again'),
                   defaultValue: 'confident'
               },
-              lastRevviewedAt: {
-                  type: Sequelize.TIMESTAMP,
+              lastReviewedAt: {
+                  type: Sequelize.DATE,
                   defaultValue: Sequelize.NOW
               },
               nextReviewAt: {
-                  type: Sequelize.TIMESTAMP,
+                  type: Sequelize.DATE,
                   allowNull: false
               },
               reviewCount: {
