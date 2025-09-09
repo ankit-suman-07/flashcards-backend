@@ -19,7 +19,9 @@ app.use(morgan('dev'));
 // Swagger docs route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use('/users', userRoutes);
+app.use('/api/users', userRoutes);
+
+app.get('/test', (req, res) => res.send('Server is working'));
 
 
 app.get('/', (req, res) => {
