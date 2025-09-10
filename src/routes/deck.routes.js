@@ -13,14 +13,13 @@ router.post('/', deckController.createDeck);
 router.post('/:deckId', deckController.getDeckById);
 
 // PUT /api/decks/:deckId → Update deck (name, description, tags, visibility).
-router.put('/:userId', deckController.updateDeckById);
+router.put('/:deckId', deckController.updateDeckById);
 
 // DELETE /api/decks/:deckId → Delete deck.
 router.delete('/:deckId', deckController.deleteDeckById);
 
 
 module.exports = router;
-
 
 
 
