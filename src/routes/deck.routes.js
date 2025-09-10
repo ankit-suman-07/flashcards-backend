@@ -16,7 +16,7 @@ router.post('/:deckId', deckController.getDeckById);
 router.put('/:userId', deckController.updateDeckById);
 
 // DELETE /api/decks/:deckId → Delete deck.
-router.delete('/:deckId', deckController);
+router.delete('/:deckId', deckController.deleteDeckById);
 
 
 module.exports = router;

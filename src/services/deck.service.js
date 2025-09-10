@@ -16,7 +16,7 @@ async function getDeckById(deckId) {
 }
 
 async function updateDeckById(deckId, updateData) {
-    const [updatedRowCount, updatedRows] = Deck.update(updateData, {
+    const [updatedRowCount, updatedRows] = await Deck.update(updateData, {
         where: {id: deckId},
         returning: true,
         plain: true
@@ -29,8 +29,21 @@ async function updateDeckById(deckId, updateData) {
     return updatedRows;
 }
 
+async function deleteDeckById(deckId) {
+    const deck = await Deck.findByPk(deckId);
+    if(deck === null) {
+        return null;
+    }
+
+    await deck.destroy();
+
+    return deck;
+}
+
 module.exports = {
     getAllDecks,
     createDeck,
-    updateDeckById
+    getDeckById,
+    updateDeckById,
+    deleteDeckById
 };

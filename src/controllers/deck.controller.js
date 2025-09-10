@@ -41,11 +41,23 @@ async function updateDeckById(req, res) {
     } catch (error) {
         res.status(500).json({ error: err.message });
     }
+
+}
+
+async function deleteDeckById(req, res) {
+    const id = req.params.deckId;
+    try {
+        const deletedDeck = await deckService.deleteDeckById(id);
+        res.status(200).json(deletedDeck);
+    } catch (error) {
+        res.status(500).json({ error: err.message });
+    }
 }
 
 module.exports = {
   getAllDecks,
   createDeck,
   getDeckById,
-  updateDeckById
+  updateDeckById,
+  deleteDeckById
 };
