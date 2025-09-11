@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const userRoutes = require('./routes/user.routes');
+const deckRoutes = require('./routes/deck.routes');
+const cardRoutes = require('./routes/card.routes');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./database/config/swagger');
@@ -20,6 +22,8 @@ app.use(morgan('dev'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/users', userRoutes);
+app.use('/api/decks', deckRoutes);
+app.use('api/decks/:deckId/cards', cardRoutes);
 
 app.get('/test', (req, res) => res.send('Server is working'));
 
