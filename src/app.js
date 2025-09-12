@@ -1,6 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./database/config/swagger');
+
+const {sequelize} = require('./database/models');
+
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const deckRoutes = require('./routes/deck.routes');
@@ -9,12 +15,6 @@ const revisionRoutes = require('./routes/revision.routes');
 const collectionRoutes = require('./routes/collection.routes');
 const shareRoutes = require('./routes/share.routes');
 const aiRoutes = require('./routes/ai.routes');
-
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./database/config/swagger');
-
-const {sequelize} = require('./database/models');
-
 
 const app = express();
 
@@ -32,17 +32,6 @@ app.get('/', (req, res) => {
 
 app.get('/test', (req, res) => res.send('Server is working'));
 
-// app.use('/api/auth', authRoutes);
-// app.use('/api/users', userRoutes);
-// app.use('/api/decks', deckRoutes);
-
-// app.use('/api/decks/:deckId/cards', cardRoutes);
-
-// // app.use('/api/cards', cardRoutes);
-// app.use('/api/revision', revisionRoutes);
-// app.use('/api/collections', collectionRoutes);
-// app.use('/api/decks/:deckId/cards', shareRoutes);
-// app.use('/api/decks/:deckId/cards', aiRoutes);
 
 // Mount routes
 app.use('/api/auth', authRoutes);            // /api/auth/*
