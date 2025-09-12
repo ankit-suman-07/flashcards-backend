@@ -10,7 +10,7 @@ router.get('/', deckController.getAllDecks);
 router.post('/', deckController.createDeck);
 
 // GET /api/decks/:deckId → Get details of a deck (cards included).
-router.post('/:deckId', deckController.getDeckById);
+router.get('/:deckId', deckController.getDeckById);
 
 // PUT /api/decks/:deckId → Update deck (name, description, tags, visibility).
 router.put('/:deckId', deckController.updateDeckById);
