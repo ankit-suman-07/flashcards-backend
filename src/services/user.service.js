@@ -15,8 +15,13 @@ async function getUserProfile(userId) {
   return user;
 }
 
+async function getUserStats(){
+  return {"message" : "Stats endpoint not set right now!!!"};
+}
+
 module.exports = {
   registerUser,
   getAllUsers,
-  getUserProfile
+  getUserProfile,
+  getUserStats
 };

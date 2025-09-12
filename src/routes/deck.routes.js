@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const deckController = require('../controllers/deck.controller');
+const cardController = require('../controllers/card.controller');
 
 
 // GET /api/decks → List all decks (with optional ?tag= filter).

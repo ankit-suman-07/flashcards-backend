@@ -10,4 +10,14 @@ const router = express.Router();
 // * `GET /:collectionId/decks` → List decks in collection.
 // * `DELETE /:collectionId/decks/:deckId` → Remove deck from collection.
 
+
+// Collections CRUD and deck management
+// router.post('/', collectionController.createCollection);
+// router.get('/', collectionController.listCollections);
+// router.get('/:collectionId', collectionController.getCollection);
+
+// router.post('/:collectionId/decks/:deckId', collectionController.addDeckToCollection);
+// router.get('/:collectionId/decks', collectionController.listDecksInCollection);
+// router.delete('/:collectionId/decks/:deckId', collectionController.removeDeckFromCollection);
+
 module.exports = router;

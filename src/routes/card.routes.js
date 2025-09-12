@@ -18,4 +18,9 @@ router.put('/:cardId', cardController.updateCardById);
 // DELETE /api/decks/:deckId/cards/:cardId → Delete card
 router.delete('/:cardId', cardController.deleteCardById);
 
+// Card media routes
+// router.post('/', cardController.uploadMedia);
+// router.get('/', cardController.getMedia);
+// router.delete('/:mediaId', cardController.deleteMedia);
+
 module.exports = router;

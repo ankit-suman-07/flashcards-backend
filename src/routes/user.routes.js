@@ -13,7 +13,7 @@ router.post('/register', userController.registerUser);
 router.get('/:userId', userController.getUserProfile);
 
 // GET /api/users/:userId/stats → Get streaks, XP, and learning stats.
-// router.get('/:userId/stats', userController.createUser);
+router.get('/:userId/stats', userController.createUser);
 
 
 module.exports = router;

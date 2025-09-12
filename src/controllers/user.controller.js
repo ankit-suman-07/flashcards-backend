@@ -34,6 +34,15 @@ async function getUserProfile(req, res) {
   }
 }
 
+async function getUserStats(req, res) {
+  try {
+    const stats = await userService.getUserStats();
+    res.status(200).json(stats);
+  } catch (error) {
+    res.status(400).json({ error: err.message });
+  }
+}
+
 
 
 module.exports = {

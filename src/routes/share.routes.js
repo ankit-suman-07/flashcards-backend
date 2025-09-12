@@ -10,5 +10,17 @@ const router = express.Router();
 // * `GET /decks/shared-with-me` → List decks shared with me.
 // * `GET /collections/shared-with-me` → List collections shared with me.
 
+// // Deck sharing
+// router.post('/decks/:deckId/share', shareController.shareDeck);
+// router.put('/decks/:deckId/share/:userId', shareController.updateDeckSharing);
+// router.delete('/decks/:deckId/share/:userId', shareController.revokeDeckSharing);
+
+// // Collection sharing
+// router.post('/collections/:collectionId/share', shareController.shareCollection);
+
+// // Shared resource lists
+// router.get('/decks', shareController.listSharedDecks);
+// router.get('/collections', shareController.listSharedCollections);
+
 
 module.exports = router;
