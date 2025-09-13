@@ -19,8 +19,9 @@ async function createCard(req, res) {
 }
 
 async function getCardById(req, res) {
-    const cardId = req.params.cardId;
+    
     const deckId = req.params.deckId;
+    const cardId = req.params.cardId;
     try {
         const card = await cardService.getCardById(deckId, cardId);
         res.status(200).json(card);
@@ -34,7 +35,7 @@ async function updateCardById(req, res) {
     const cardId = req.params.cardId
     const updateData = req.body;
     try {
-        const updatedCard = await cardService.updateCardById(cardId, deckId, updateData);
+        const updatedCard = await cardService.updateCardById(deckId, cardId, updateData);
         if (!updatedCard) {
             return res.status(404).json({ message: 'Deck not found' });
         }

@@ -25,7 +25,7 @@ async function getCardById(deckId, cardId) {
     return card;
 } 
 
-async function updateCardById(cardId, deckId, updateData) {
+async function updateCardById(deckId, cardId, updateData) {
     const [updatedRowCount, updatedRows] = await Card.update(updateData, {
         where: {
             id: cardId,
