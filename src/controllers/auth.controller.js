@@ -3,7 +3,7 @@ const authService = require('../services/auth.service');
 async function userLogin(req, res) {
   try {
     const { email, passwordHash } = req.body;
-    const user = await userService.userLogin(email, passwordHash);
+    const user = await authService.userLogin(email, passwordHash);
     if (user) {
       res.status(200).json(user);
     } else {

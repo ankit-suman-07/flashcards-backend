@@ -4,10 +4,10 @@ module.exports = (sequelize) => {
     class RevisionSession extends Model {
         static associate(models) {
             // Each progress record belongs to 1 user 
-        CardProgress.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
+        RevisionSession.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
 
         // Each progress record belongs to 1 card
-        CardProgress.belongsTo(models.Deck, { foreignKey: 'deckId', as: 'deck' });
+        RevisionSession.belongsTo(models.Deck, { foreignKey: 'deckId', as: 'deck' });
         }
     }
 
