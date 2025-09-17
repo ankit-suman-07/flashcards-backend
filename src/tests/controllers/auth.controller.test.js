@@ -1,5 +1,3 @@
-// src/tests/unit/controllers/auth.controller.test.js
-
 const authController = require('../../controllers/auth.controller');
 const authService = require('../../services/auth.service');
 
